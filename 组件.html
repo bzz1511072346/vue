@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>  
+    <div id="app">
+        <hello-world></hello-world>
+    </div>
+
+    <script type="x-template" id="box">
+        <div>
+            <h1 @click="change">标题：{{title}}</h1>
+            <p v-show = "flag">菊花</p>
+            <ul v-for = "(item,x) in flowerlist" :key="x" style = "list-style: none;">
+                <li>{{item}}</li>
+            </ul>
+            <input type="text" placeholder = "姓" v-model = "firstname">
+            <input type="text" placeholder = "名" v-model = "lastname">
+            <input type="text" placeholder = "姓名" v-model = "fullname">
+            <input type="text" placeholder = "姓名" v-model = "fullname1">
+            <!-- <input type="text" placeholder = "姓名" v-model = "fullname2"> -->
+        </div>
+    </script>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{},
+        components: {
+            'HelloWorld':{
+                template:"#box",
+            data () {
+                return {
+                    title:"Holle World",
+                    flag:true,
+                    flowerlist:["待到秋来九月八","我花开后百花杀","冲天香阵透长安","满城尽带黄金甲"],
+                    firstname:"A",
+                    lastname:"B"                                
+                }
+            },
+            computed: {
+                fullname(){
+                    return this.firstname + " " + this.lastname
+                },
+                fullname1:{
+                    get() {
+                        return this.firstname + " " +this.lastname
+                    },
+                    set(value){
+                        let names = value.split(" ")
+                        console.log()
+                        this.firstname = names[0];
+                        this.lastname = names[1];
+                    }
+                }
+            },
+            // watch: {
+            //    firstname: function (value) {
+            //        this.fullname2 = value + " " + this.lastname;
+            //    }
+            // },
+            methods: {
+                change(){
+                    this.flag = !this.flag;
+                }
+            }
+            }        
+        }
+    })
+</script>
+</html>

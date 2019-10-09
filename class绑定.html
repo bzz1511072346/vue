@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    .aClass{
+        color: red;
+    }
+    .bClass{
+        color: blue;
+    }
+    .cClass{
+        font-size: 30px;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="cClass" :class="a">字符串绑定</div>
+        <p :class = "{bClass:isB,cClass:isC}">对象绑定</p>
+        <p :style = "{color:activeColor,fontSize:fontSize + 'px'}">绑定style</p>
+        <input type="button" value="更新" @click= "change">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            a:"aClass",
+            isB:true,
+            isC:false,
+            activeColor:"pink",
+            fontSize: 20
+        },
+        methods: {
+            change (){
+                this.a = "bClass"
+                this.isB = !this.isB
+                this.isC = !this.isC
+                this.activeColor = "yellow"
+                this.fontSize = 30
+            }
+        }
+    })
+</script>
+</html>

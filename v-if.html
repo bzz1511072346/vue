@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-if = "ok">成功</p>
+        <p v-else>失败</p>
+        <p v-show = "ok">你成功了</p>
+        <p v-show = "!ok">你失败了</p>
+        <button @click = "ok = !ok">切换</button>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            ok:false
+        }
+    })
+</script>
+</html>

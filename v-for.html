@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul v-for = "item in nameList">
+            <li>{{item}}</li>
+        </ul>
+        <ul v-for = "(item,x) in nameList" :key="x">
+                <li>{{item}}</li>
+         </ul>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            nameList:["郭盈","黄园园","白萌钊","韩钟梁","张帅"]
+        }
+    })
+</script>
+</html>

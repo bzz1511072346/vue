@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="mas" alt="">
+        <img :src="mas" alt="">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            mas:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570529567984&di=39b52d7827d3ddfac6494b2205e08d88&imgtype=0&src=http%3A%2F%2Fimg.tukexw.com%2Fimg%2F0905ebfc306bcf89.jpg"
+        },
+    })
+</script>
+</html>

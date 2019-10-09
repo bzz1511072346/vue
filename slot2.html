@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <hello>
+            <div slot="one">我替换了第一个</div>
+            <div slot="two">我替换了第二个</div>
+            <div slot="three">我替换了第三个</div>
+        </hello>  
+    </div>
+</body>
+<script>
+    Vue.components('hello',{
+        template:
+        `
+        <h1>首页</h1>
+        <slot name = "one"><h2>我在第一个位置</h2></slot>
+        <slot name = "two"><h2>我在第二个位置</h2></slot>
+        <slot name = "three"><h2>我在第三个位置</h2></slot>
+        `
+    })
+    new Vue({
+        el:"#app"
+    })
+</script>
+</html>

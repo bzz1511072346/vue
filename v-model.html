@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model = "mas">
+        <div><h1>massage:</h1>{{mas}}</div> -->
+        <input type="text" placeholder = "姓" v-model = "firstname">
+        <input type="text" placeholder = "名" v-model = "lastname">
+        <input type="text" placeholder = "姓名" v-model = "fullname">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            firstname:"A",
+            lastname:"B"           
+        },
+        computed: {
+            fullname () {
+                console.log(fullname())
+            }
+        }
+    })
+</script>
+</html>
